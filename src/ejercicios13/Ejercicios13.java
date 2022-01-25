@@ -34,7 +34,7 @@ public class Ejercicios13 {
                     Parte1.main(args);
                     break;
                 case "2":
-                    
+                    Parte2.main(args);
                     break;
                 case "0":
                     break;
