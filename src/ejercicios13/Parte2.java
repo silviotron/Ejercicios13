@@ -24,7 +24,8 @@ public class Parte2 {
         sc = new java.util.Scanner(System.in);
         System.out.print("Introduce una frase: ");
         String frase = sc.nextLine();
-        String[] array = frase.split(" ");
+        frase = frase.replaceAll("[^A-Za-z\\d ]", "");
+        String[] array = frase.split(" +");
         for (String palabra : array) {
             c.add(palabra.toLowerCase());
         }
