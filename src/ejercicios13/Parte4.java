@@ -20,14 +20,13 @@ public class Parte4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         Set<Character> c = new HashSet<>();
-
         sc = new java.util.Scanner(System.in);
         System.out.print("Introduce las letras: ");
-        String frase1 = sc.nextLine().toLowerCase();
+        String frase1 = sc.nextLine().toLowerCase().replaceAll("[^A-Za-z]", "");
         System.out.print("Introduce la frase: ");
         String frase2 = sc.nextLine().toLowerCase();
-        frase1 = frase1.replaceAll("[^A-Za-z]", "");
         char[] array1 = frase1.toCharArray();
         char[] array2 = frase2.toCharArray();
         boolean condicion = true;
@@ -42,9 +41,7 @@ public class Parte4 {
             
         }
 
-        System.out.println(condicion
-                ?frase1 + ", " + frase2 + ". La frase SI contiene al menos una vez todas las letras introducidas"
-                :frase1 + ", " + frase2 + ". La frase NO contiene al menos una vez todas las letras introducidas");
+        System.out.printf("%s, %s. La frase %s contiene al menos una vez todas las letras introducidas\n", frase1, frase2, (condicion?"SI":"NO"));
 
     }
     
