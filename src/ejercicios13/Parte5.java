@@ -7,6 +7,7 @@ package ejercicios13;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 /**
  *
  * @author alumno
@@ -18,29 +19,37 @@ public class Parte5 {
      */
     public static void main(String[] args) {
         java.util.Scanner sc = new java.util.Scanner(System.in);
-        Set<Integer> c = new HashSet<>();
-        Set<Integer> primos = new HashSet<>();
-        int base = 2;
-        int num = -1;        
+        Set<Long> c = new HashSet<>();
+        Set<Long> primos = new TreeSet<>();
+        long num = -1;        
         do {            
             System.out.print("Introduce el numero maximo: ");
             if(sc.hasNextInt()){
                 num = sc.nextInt();
             }
-
+            sc.nextLine();
+            
         } while (num < 0);
-        while(base * base <= num) {
-            for (int i = base; base * i <= num; i++) {
-            c.add(base * i);
+        for(long i = 2;i * i <= num; i ++) {
+            if(!c.contains(i)){
+                for (long j = i; i * j <= num; j++) {
+                c.add(i * j);
+                }
             }
-            base++;
         }
-        for (int i = 2; i <= num; i++) {
+        for (long i = 2; i <= num; i++) {
             primos.add(i);
         }
         primos.removeAll(c);
         System.out.println(primos);
-        
+        System.out.println("total: " + primos.size());
+//        for (long i = 2; i <= num; i++) {
+//            if(!c.contains(i)){
+//            primos.add(i);
+//    
+//            }
+//        }
+//        System.out.println(primos);
     }
     
 }
